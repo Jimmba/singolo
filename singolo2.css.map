@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,UAAU;EACR,WAAW,EAAE,YAAY;EACzB,GAAG,EAAE,4BAA4B;;;AAGnC,UAAU;EACR,WAAW,EAAE,WAAW;EACxB,GAAG,EAAE,2BAA2B;;;AAGlC,UAAU;EACR,WAAW,EAAE,YAAY;EACzB,GAAG,EAAE,4BAA4B;;;AAGnC,UAAU;EACR,WAAW,EAAE,cAAc;EAC3B,GAAG,EAAE,8BAA8B;;;AAGrC,AAAA,CAAC,CAAC;EACE,UAAU,EAAE,UAAU;CACzB",
+    "sources": [
+        "singolo2.scss"
+    ],
+    "names": [],
+    "file": "singolo2.css"
+}
