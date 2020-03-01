@@ -22,4 +22,63 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 1020px;
+  margin: 0 auto;
+}
+
+.portfolio {
+  background-color: #272C38;
+  padding: 67px 40px;
+}
+
+.portfolio h1 {
+  font-family: Lato-Black;
+  margin: 0px;
+  font-size: 30px;
+  letter-spacing: -0.2px;
+  line-height: 23px;
+  color: #666d89;
+}
+
+.portfolio p {
+  margin-top: 28px;
+  margin-bottom: 7px;
+  font-family: Lato-Light;
+  color: #767e9e;
+  font-size: 18px;
+}
+
+.portfolio ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.portfolio li {
+  height: 22px;
+  list-style-type: none;
+  margin-top: 8px;
+  font-family: Lato-Regular;
+  color: #767e9e;
+  font-size: 12px;
+  margin-right: 10px;
+  border: 1px solid #767e9e;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.portfolio .active {
+  color: #dedede;
+  margin-left: 1px;
+  border: 1px solid #dedede;
+}
 /*# sourceMappingURL=singolo2.css.map */
