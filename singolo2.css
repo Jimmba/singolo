@@ -43,7 +43,7 @@ body {
 }
 
 .wrapper p {
-  margin-top: 23px;
+  margin-top: 24px;
   margin-bottom: 4px;
   font-family: Lato-Light;
   color: #767e9e;
@@ -97,7 +97,7 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding-top: 19px;
+  padding-top: 18px;
 }
 
 .portfolio .images img {
@@ -147,7 +147,7 @@ body {
   white-space: nowrap;
 }
 
-.team-people p {
+.team-people .description {
   margin-top: 0;
   line-height: 22px;
   color: #767e9e;
@@ -160,5 +160,14 @@ body {
 .team-people--icons {
   margin-top: 23px;
   letter-spacing: 4px;
+}
+
+.team-people--icons img {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.team-people--icons img:hover {
+  background-color: #afb6d1;
 }
 /*# sourceMappingURL=singolo2.css.map */
