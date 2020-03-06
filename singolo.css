@@ -416,6 +416,7 @@ article .article-about div {
 
 .info form input {
   height: 38px;
+  color: #f48c8f
 }
 
 .info form .text {
@@ -448,6 +449,7 @@ article .article-about div {
 .info form textarea {
   height: 200px;
   padding-top: 10px;
+  color: #f48c8f
 }
 
 .info form .submit {
