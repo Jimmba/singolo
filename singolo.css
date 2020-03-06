@@ -215,11 +215,13 @@ article .article-about h3 {
 }
 
 article .article-about div {
+  height: 65.454px;
   text-align: justify;
   font-family: Lato-Regular;
   font-size: 12px;
   color: #767e9e;
   line-height: 22px;
+  overflow: hidden;
 }
 
 /* singolo 2 */
@@ -501,6 +503,11 @@ article .article-about div {
 
 .contact span img {
   margin-right: 13px;
+}
+
+.contact span a {
+  text-decoration: none;
+  color: #f0d8d9;
 }
 
 .quote-line {
