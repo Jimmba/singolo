@@ -340,6 +340,8 @@ article .article-about div {
   margin-bottom: 8px;
   letter-spacing: -0.2px;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 .team-people .description {
