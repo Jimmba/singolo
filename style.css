@@ -24,15 +24,32 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 0 6px 0;
   padding: 0;
 }
 
 .wrapper {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  max-width: 1020px;
+  width: 1020px;
   margin: 0 auto;
+}
+
+.wrapper .title {
+  font-family: Lato-Black;
+  margin: 0px;
+  font-size: 30px;
+  letter-spacing: -0.2px;
+  line-height: 23px;
+  color: #666d89;
+}
+
+.wrapper p {
+  margin-top: 24px;
+  margin-bottom: 4px;
+  font-family: Lato-Light;
+  color: #767e9e;
+  font-size: 18px;
+  text-align: justify;
+  line-height: 30px;
 }
 
 header {
@@ -91,7 +108,12 @@ header li:hover {
   opacity: 0.8;
 }
 
-header .home {
+header li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+header li .active {
   color: #f06c64;
 }
 
@@ -224,8 +246,6 @@ article .article-about div {
   overflow: hidden;
 }
 
-/* singolo 2 */
-
 .portfolio {
   margin-top: 2px;
   background-color: #272C38;
@@ -250,7 +270,6 @@ article .article-about div {
   text-align: justify;
   line-height: 30px;
 }
-
 
 .portfolio ul {
   display: -webkit-box;
@@ -369,8 +388,6 @@ article .article-about div {
   background-color: #afb6d1;
 }
 
-/* singolo 3 */
-
 .quote {
   background-color: #FF6C64;
   padding: 66px 40px 0;
@@ -420,7 +437,6 @@ article .article-about div {
 
 .info form input {
   height: 38px;
-  color: #f48c8f
 }
 
 .info form .text {
@@ -453,7 +469,6 @@ article .article-about div {
 .info form textarea {
   height: 200px;
   padding-top: 10px;
-  color: #f48c8f
 }
 
 .info form .submit {
@@ -508,8 +523,8 @@ article .article-about div {
 }
 
 .contact span a {
-  text-decoration: none;
   color: #f0d8d9;
+  text-decoration: none;
 }
 
 .quote-line {
@@ -548,3 +563,4 @@ footer .social-icons img:hover {
   cursor: pointer;
   background-color: #afb6d1;
 }
+/*# sourceMappingURL=style.css.map */

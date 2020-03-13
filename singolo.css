@@ -78,6 +78,10 @@ header li {
   position: relative;
 }
 
+a {
+  text-decoration: none;
+}
+
 header li:not(:first-child)::after {
   position: absolute;
   content: ".";
