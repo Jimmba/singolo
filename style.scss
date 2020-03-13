@@ -118,20 +118,25 @@
     &-header {
       background-color: #323746;
     }
+    
+}
+.red-line{
+    background-color: #ea676b; //f06c64
+}
 
-    &-slider {
-        background-color: #ea676b;
-    }
+.blue-line{
+    background-color: #6992Ff;
 }
   
   
   .slider {
     height: 595px;
-    background-color: #f06c64;
     display: flex;
     position: relative;
     padding: 53px 40px;
-    
+    display: flex;
+    justify-content: center;
+
     .shadow {
         border-radius: 25px;
         box-shadow: 25px 25px 1px #ce5d56;
@@ -145,21 +150,38 @@
         padding: 121px 98px;
     }
 
-    &-controls {
-      position: absolute;
-      display: flex;
-      width: 92%;
-      top: 47%;
-      justify-content: space-between;
-      
-      .right img {
-                transform: rotate(180deg);
-      }
-      
-      .left:hover, .right:hover {
-        cursor: pointer;
-      }
+}
+
+
+
+.slider-controls {
+    max-width: 944px;
+    margin: 90px 40px;
+    position: absolute;
+    display: flex;
+    width: 92%;
+    top: 47%;
+    justify-content: space-between;
+    
+    .right img {
+            transform: rotate(180deg);
     }
+    
+    .left:hover, .right:hover {
+    cursor: pointer;
+    }
+}
+
+.red {
+    background-color: #f06c64;
+}
+
+.blue {
+    background-color: #648BF0;
+}
+
+.hidden {
+    display: none;
 }
   
 .our_services {

@@ -126,18 +126,25 @@ header li .active {
   background-color: #323746;
 }
 
-.line-slider {
+.red-line {
   background-color: #ea676b;
+}
+
+.blue-line {
+  background-color: #6992Ff;
 }
 
 .slider {
   height: 595px;
-  background-color: #f06c64;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
   padding: 53px 40px;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .slider .shadow {
@@ -155,6 +162,8 @@ header li .active {
 }
 
 .slider-controls {
+  max-width: 944px;
+  margin: 90px 40px;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -173,6 +182,18 @@ header li .active {
 
 .slider-controls .left:hover, .slider-controls .right:hover {
   cursor: pointer;
+}
+
+.red {
+  background-color: #f06c64;
+}
+
+.blue {
+  background-color: #648BF0;
+}
+
+.hidden {
+  display: none;
 }
 
 .our_services {
