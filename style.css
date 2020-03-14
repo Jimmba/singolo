@@ -155,21 +155,45 @@ header li .active {
 
 .slider .vertical_mobile {
   padding-left: 72px;
+  position: relative;
+  z-index: 1;
+}
+
+.slider .vertical_mobile .mobile1 {
+  position: absolute;
+  width: 188px;
+  height: 333px;
+  top: 65px;
+  left: 86px;
+  background-color: black;
+  z-index: 2;
 }
 
 .slider .horisontal_mobile {
   padding: 121px 98px;
+  position: relative;
+  z-index: 1;
+}
+
+.slider .horisontal_mobile .mobile2 {
+  position: absolute;
+  width: 333px;
+  height: 188px;
+  top: 135px;
+  left: 158px;
+  background-color: black;
+  z-index: 2;
 }
 
 .slider-controls {
   max-width: 944px;
-  margin: 90px 40px;
+  margin: 0 40px;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 92%;
-  top: 47%;
+  top: 60%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -178,6 +202,10 @@ header li .active {
 .slider-controls .right img {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+
+.slider-controls .left, .slider-controls .right {
+  z-index: 2;
 }
 
 .slider-controls .left:hover, .slider-controls .right:hover {
