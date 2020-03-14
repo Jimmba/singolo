@@ -103,7 +103,7 @@ header li:not(:first-child)::after {
   opacity: 0.3;
 }
 
-header li:hover {
+header li a:hover {
   cursor: pointer;
   opacity: 0.8;
 }

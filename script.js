@@ -3,14 +3,19 @@ let activeSlide = 1;
 const SLIDES = document.getElementsByClassName('slider');
 const LINE = document.getElementById('line');
 const MOBILES = document.getElementsByClassName('phone');
+const PORTFOLIOTABS = document.getElementById('portfolio-tabs');
+const IMAGES = document.getElementById('images');
 
 // menu buttons
 MENU.addEventListener('click', (event) =>
 {
-    MENU.querySelectorAll('a').forEach(el => {
-        el.classList.remove('active');
-    });
-    event.target.classList.add('active');
+    let menues = MENU.querySelectorAll('a');
+    if (clickedOnButton(menues, event.target)){
+        MENU.querySelectorAll('a').forEach(el => {
+            el.classList.remove('active');
+        });
+        event.target.classList.add('active');
+    }
 })
 
 // slider
@@ -51,3 +56,33 @@ for (let i = 0; i < MOBILES.length; i += 1) {
 function ChangePhoneState(mobile) {
     mobile.contains('hidden') ? mobile.remove('hidden') : mobile.add('hidden');
 }
+
+//portfolio tabs
+
+PORTFOLIOTABS.addEventListener('click', (event) => {
+    let tabs = PORTFOLIOTABS.querySelectorAll('li');
+    if (clickedOnButton(tabs, event.target)) {
+        tabs.forEach(el => {
+            el.classList.remove('active');
+        });
+        event.target.classList.add('active');
+    }
+})
+
+function clickedOnButton(buttons, target){
+    for (let i = 0; i < buttons.length; i +=1) {
+        if (buttons[i] == target) return true;
+    }
+    return false;
+}
+
+//portfolio images
+IMAGES.addEventListener('click', (event) => {
+    let imgs = IMAGES.querySelectorAll('img');
+    if (clickedOnButton(imgs, event.target)) {
+        imgs.forEach(el => {
+            el.classList.remove('bordered');
+        });
+        event.target.classList.add('bordered');
+    }
+})
