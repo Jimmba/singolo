@@ -92,3 +92,22 @@ function MoveImages() {
     let move = IMAGES.querySelectorAll('img')[0];
     IMAGES.appendChild(move);
 }
+
+//sumbit form
+
+document.getElementById('submit').addEventListener('click', (event) => {
+    let name = document.getElementById('name');
+    let email = document.getElementById('email');
+    if (name.checkValidity() && email.checkValidity()) {
+        event.preventDefault();
+        let subject = document.getElementById('subject').value.toString() !== '' ? `Тема: ${document.getElementById('subject').value.toString()}` : 'Без темы';
+        let describe = document.getElementById('describe').value.toString() !== '' ? `Описание: ${document.getElementById('describe').value.toString()}` : 'Без описания';
+        
+        document.getElementById('modal').getElementsByClassName('subject')[0].querySelector('span').innerHTML = subject;
+        document.getElementById('modal').getElementsByClassName('describe')[0].querySelector('span').innerHTML = describe;
+        document.getElementById('modal').classList.remove('hidden');
+        document.getElementById('modal').getElementsByClassName('submit')[0].addEventListener('click', (event => {
+            document.getElementById('modal').classList.add('hidden');
+        }))   
+    }
+})

@@ -298,7 +298,7 @@ article .article-about div {
 .portfolio {
   margin-top: 2px;
   background-color: #272C38;
-  padding: 65px 40px 47px;
+  padding: 65px 40px 51px;
 }
 
 .portfolio-title {
@@ -533,6 +533,7 @@ article .article-about div {
   background-color: #D6564F;
   margin-bottom: 14px;
   color: #f48c8f;
+  padding: 5px 10px;
 }
 
 .info form .submit:hover {
@@ -619,5 +620,54 @@ footer .social-icons img {
 footer .social-icons img:hover {
   cursor: pointer;
   background-color: #afb6d1;
+}
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-window {
+  background-color: #FF6C64;
+  padding: 20px;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 5px;
+}
+
+.modal-window-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.modal-window-data {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.modal-window-button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.modal-window-button-action {
+  background-color: #fff;
+  border: 0;
+  color: #f15c55;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.modal-window-button-action:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

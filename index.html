@@ -179,12 +179,12 @@
             <h2 class="quote-title">Get a Quote</h2>
             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
             <div class="info">
-                <form action="#">
+                <form action="#" id = "form">
                     <input type="text" class = "text" name="name" id="name" placeholder="Name (Required)" required>
                     <input type="email" class = "text" name="email" id="email" placeholder="Email (Required)" required>
                     <input type="text" class = "text" name="subject" id="subject" placeholder="Subject">
-                    <textarea class = "text" placeholder="Describe your project in detail..."></textarea>
-                    <input type="submit" class = "text submit" value="Submit">
+                    <textarea class = "text" placeholder="Describe your project in detail..." id = "describe"></textarea>
+                    <input type="submit" class = "text submit" value="Submit" id = "submit">
                 </form>
                 <div class="contact" id = "contact">
                     <h3>Contact Information</h3>
@@ -192,20 +192,34 @@
                     <span><img src="assets/icon-location.png" alt="location">Elm St. 14/05 Lost City </span>
                     <span><img src="assets/icon-phone.png" alt="phone"><a href="tel:03528 331 86 35">03528 331 86 35</a></span>
                     <span><img src="assets/icon-mail.png" alt="mail"><a href ="mailto:info@singolo.com">info@singolo.com</a></span>
-                </span>
+                </div>
             </div>
         </div>    
-    </div>
-    <div class="quote-line"></div>
-    <footer>
-        <div class="copyright">© Copyright 2013</div>
-        <div class="social-icons">
-            <img src="assets/icon-facebook.png" alt="facebook">
-            <img src="assets/icon-google.png" alt="google">
-            <img src="assets/icon-twitter.png" alt="twitter">
-            <img src="assets/icon-linkedin.png" alt="linkedin">
+        <div class="quote-line"></div>
+        <footer>
+            <div class="copyright">© Copyright 2013</div>
+            <div class="social-icons">
+                <img src="assets/icon-facebook.png" alt="facebook">
+                <img src="assets/icon-google.png" alt="google">
+                <img src="assets/icon-twitter.png" alt="twitter">
+                <img src="assets/icon-linkedin.png" alt="linkedin">
+            </div>
+        </footer>
+        <div class="modal hidden" id="modal">
+            <div class="modal-window">
+                <div class="modal-window-title">Письмо отправлено</div>
+                <div class="modal-window-data subject">
+                    <span></span>
+                </div>
+                <div class="modal-window-data describe">
+                    <span></span>
+                </div>
+                <div class="modal-window-button submit">
+                    <button class="modal-window-button-action">OK</button>
+                </div>
+            </div>
         </div>
-    </footer>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
