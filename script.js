@@ -77,14 +77,20 @@ function clickedOnButton(buttons, target){
     return false;
 }
 
-//portfolio images
+//portfolio images border
+
 IMAGES.addEventListener('click', (event) => {
+    let activeImage = IMAGES.getElementsByClassName('bordered')[0];
+    let clickedImage = event.target;
     let imgs = IMAGES.querySelectorAll('img');
+    
     if (clickedOnButton(imgs, event.target)) {
         imgs.forEach(el => {
             el.classList.remove('bordered');
         });
-        event.target.classList.add('bordered');
+        if (activeImage !== clickedImage) {
+            event.target.classList.add('bordered');
+        }
     }
 })
 
@@ -103,11 +109,15 @@ document.getElementById('submit').addEventListener('click', (event) => {
         let subject = document.getElementById('subject').value.toString() !== '' ? `Тема: ${document.getElementById('subject').value.toString()}` : 'Без темы';
         let describe = document.getElementById('describe').value.toString() !== '' ? `Описание: ${document.getElementById('describe').value.toString()}` : 'Без описания';
         
-        document.getElementById('modal').getElementsByClassName('subject')[0].querySelector('span').innerHTML = subject;
-        document.getElementById('modal').getElementsByClassName('describe')[0].querySelector('span').innerHTML = describe;
+        document.getElementById('modal').getElementsByClassName('subject')[0].querySelector('p').innerHTML = subject;
+        document.getElementById('modal').getElementsByClassName('describe')[0].querySelector('p').innerHTML = describe;
         document.getElementById('modal').classList.remove('hidden');
         document.getElementById('modal').getElementsByClassName('submit')[0].addEventListener('click', (event => {
-            document.getElementById('modal').classList.add('hidden');
+            document.getElementById('modal').classList.add('hide');
+            setTimeout(()=>{
+                document.getElementById('modal').classList.add('hidden');
+                document.getElementById('modal').classList.remove('hide');
+            }, 2000);
         }))   
     }
 })

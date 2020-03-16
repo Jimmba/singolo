@@ -10,7 +10,7 @@
 <body>
     <div class="wrapper">
         <header id = "home">
-            <h1 class = "logo">Singolo<span>*</span></h1>
+            <a href ="#home"><h1 class = "logo">Singolo<span>*</span></h1></a>
             <ul class="nav" id = "menu">
                 <li><a href = "#home" class = "active">Home</a></li>
                 <li><a href = "#services">Services</a></li>
@@ -183,15 +183,30 @@
                     <input type="text" class = "text" name="name" id="name" placeholder="Name (Required)" required>
                     <input type="email" class = "text" name="email" id="email" placeholder="Email (Required)" required>
                     <input type="text" class = "text" name="subject" id="subject" placeholder="Subject">
-                    <textarea class = "text" placeholder="Describe your project in detail..." id = "describe"></textarea>
+                    <textarea class = "text" maxlength="1000" placeholder="Describe your project in detail..." id = "describe"></textarea>
                     <input type="submit" class = "text submit" value="Submit" id = "submit">
                 </form>
                 <div class="contact" id = "contact">
                     <h3>Contact Information</h3>
                     <p>Quisque hendrerit purus dapibus, ornare nibh vitae, viver-ra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. </p>
-                    <span><img src="assets/icon-location.png" alt="location">Elm St. 14/05 Lost City </span>
-                    <span><img src="assets/icon-phone.png" alt="phone"><a href="tel:03528 331 86 35">03528 331 86 35</a></span>
-                    <span><img src="assets/icon-mail.png" alt="mail"><a href ="mailto:info@singolo.com">info@singolo.com</a></span>
+                        <div class="contact-info">
+                            <div class="contact-info-image">
+                                <img src="assets/icon-location.png" alt="location">
+                            </div>
+                            Elm St. 14/05 Lost City
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-info-image">
+                                <img src="assets/icon-phone.png" alt="phone">
+                            </span>
+                            <a href="tel:03528 331 86 35">03528 331 86 35</a>
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-info-image">
+                                <img src="assets/icon-mail.png" alt="mail">
+                            </span>
+                            <a href ="mailto:info@singolo.com">info@singolo.com</a>
+                        </div>
                 </div>
             </div>
         </div>    
@@ -209,10 +224,10 @@
             <div class="modal-window">
                 <div class="modal-window-title">Письмо отправлено</div>
                 <div class="modal-window-data subject">
-                    <span></span>
+                    <p></p>
                 </div>
                 <div class="modal-window-data describe">
-                    <span></span>
+                    <p></p>
                 </div>
                 <div class="modal-window-button submit">
                     <button class="modal-window-button-action">OK</button>

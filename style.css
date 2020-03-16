@@ -68,8 +68,13 @@ header {
   font-family: Lato-Bold;
 }
 
+header a {
+  text-decoration: none;
+}
+
 header .logo {
   font-size: 24px;
+  color: #ffffff;
 }
 
 header .logo:hover {
@@ -496,11 +501,19 @@ article .article-about div {
   height: 38px;
 }
 
+.info form input:-internal-autofill-selected {
+  -webkit-animation-name: autofill;
+          animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
 .info form .text {
   width: 619px;
   border: none;
   font-size: 12px;
   font-family: Lato-Regular;
+  color: #fff;
   background-color: #D6564F;
   border-radius: 4px;
   margin-bottom: 16px;
@@ -524,7 +537,7 @@ article .article-about div {
 }
 
 .info form textarea {
-  height: 200px;
+  height: 201px;
   padding-top: 10px;
 }
 
@@ -570,17 +583,25 @@ article .article-about div {
   margin-bottom: 25px;
 }
 
-.contact span {
-  margin-bottom: 6px;
+.contact-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 8px;
   font-family: Lato-Regular;
   font-size: 12px;
+  line-height: 13px;
 }
 
-.contact span img {
+.contact-info-image {
+  width: 24px;
+}
+
+.contact-info-image img {
   margin-right: 13px;
 }
 
-.contact span a {
+.contact-info a {
   color: #f0d8d9;
   text-decoration: none;
 }
@@ -630,18 +651,33 @@ footer .social-icons img:hover {
   left: 0;
   z-index: 3;
   background-color: rgba(0, 0, 0, 0.8);
+  -webkit-animation: load-modal 1s ease;
+          animation: load-modal 1s ease;
 }
 
 .modal-window {
-  background-color: #FF6C64;
-  padding: 20px;
-  color: #fff;
   position: absolute;
+  max-width: 300px;
+  padding: 20px;
+  background-color: #FF6C64;
+  color: #fff;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   border-radius: 5px;
+  -webkit-animation: load-modal-window 2s ease;
+          animation: load-modal-window 2s ease;
+}
+
+.modal-window p {
+  color: #fff;
+  margin: 0;
+  text-align: justify;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 58vh;
 }
 
 .modal-window-title {
@@ -651,12 +687,11 @@ footer .social-icons img:hover {
 
 .modal-window-data {
   font-size: 16px;
-  margin-bottom: 10px;
 }
 
 .modal-window-button {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .modal-window-button-action {
@@ -669,5 +704,126 @@ footer .social-icons img:hover {
 
 .modal-window-button-action:hover {
   cursor: pointer;
+}
+
+.hide {
+  -webkit-animation: hideModal 2s ease;
+          animation: hideModal 2s ease;
+}
+
+.hide .modal-window {
+  opacity: 0;
+  -webkit-animation: hideModal-window 1s ease;
+          animation: hideModal-window 1s ease;
+}
+
+@-webkit-keyframes load-modal {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@keyframes load-modal {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@-webkit-keyframes load-modal-window {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+}
+
+@keyframes load-modal-window {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+}
+
+@keyframes load-modal-window {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes hideModal-window {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hideModal-window {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes hideModal {
+  0% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes hideModal {
+  0% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@-webkit-keyframes autofill {
+  to {
+    color: #fff;
+    background-color: #D6564F;
+  }
+}
+
+@keyframes autofill {
+  to {
+    color: #fff;
+    background-color: #D6564F;
+  }
 }
 /*# sourceMappingURL=style.css.map */
