@@ -66,6 +66,7 @@ PORTFOLIOTABS.addEventListener('click', (event) => {
             el.classList.remove('active');
         });
         event.target.classList.add('active');
+        MoveImages();
     }
 })
 
@@ -86,3 +87,8 @@ IMAGES.addEventListener('click', (event) => {
         event.target.classList.add('bordered');
     }
 })
+
+function MoveImages() {
+    let move = IMAGES.querySelectorAll('img')[0];
+    IMAGES.appendChild(move);
+}
