@@ -9,41 +9,43 @@
 </head>
 <body>
     <div class="wrapper">
-        <header id = "home">
-            <a href ="/"><h1 class = "logo">Singolo<span>*</span></h1></a>
-            <ul class="nav" id = "menu">
-                <li class = "active">Home</li>
-                <li>Services</li>
-                <li>Portfolio</li>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
-        </header>
-        <div class="line line-header"></div>
-        <div id="slider">
-            <div class="slider red">
-                <div class="vertical_mobile mobile">
-                    <div class="phone">
-                        <img class="shadow" src="assets/phone vertical.png" alt="vertical phone">
-                        <div class="mobiles mobile1 hidden" id = "mobile"></div>
+        <div class="home" id ="home">
+            <header>
+                <a href ="/"><h1 class = "logo">Singolo<span>*</span></h1></a>
+                <ul class="nav" id = "menu">
+                    <li class = "active">Home</li>
+                    <li>Services</li>
+                    <li>Portfolio</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </header>
+            <div class="line line-header"></div>
+            <div id="slider">
+                <div class="slider red">
+                    <div class="vertical_mobile mobile">
+                        <div class="phone">
+                            <img class="shadow" src="assets/phone vertical.png" alt="vertical phone">
+                            <div class="mobiles mobile1 hidden" id = "mobile"></div>
+                        </div>
+                    </div>
+                    <div class="horisontal_mobile mobile">
+                        <div class="phone">
+                            <img class="shadow" src="assets/phone horizontal.png" alt="horizontal phone"`>
+                            <div class="mobiles mobile2 hidden" id = "mobile"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="horisontal_mobile mobile">
-                    <div class="phone">
-                        <img class="shadow" src="assets/phone horizontal.png" alt="horizontal phone"`>
-                        <div class="mobiles mobile2 hidden" id = "mobile"></div>
-                    </div>
+                <div class ="slider blue hidden">
+                    <img src="assets/slide-2.jpg" alt="slide2">
+                </div>
+                <div class="slider-controls">
+                    <div class="left" id = "slide-left"><img src="assets/slider_button.png" alt="right button"></div>
+                    <div class="right" id = "slide-right"><img src="assets/slider_button.png" alt="left button"></div>
                 </div>
             </div>
-            <div class ="slider blue hidden">
-                <img src="assets/slide-2.jpg" alt="slide2">
-            </div>
-            <div class="slider-controls">
-                <div class="left" id = "slide-left"><img src="assets/slider_button.png" alt="right button"></div>
-                <div class="right" id = "slide-right"><img src="assets/slider_button.png" alt="left button"></div>
-            </div>
+            <div class="line line-slider red-line" id = "line"></div>
         </div>
-        <div class="line line-slider red-line" id = "line"></div>
         <div class="our_services" id = "services">
             <div class="our_services__wrapper">
                 <h2>Our Services</h2>
@@ -105,8 +107,8 @@
                     </div>
                 </article>
             </div>
+            <div class="our_services-line"></div>
         </div>
-        <div class="line"></div>
         <div class="portfolio" id = "portfolio">
             <div class="portfolio-header">
                 <div class = "portfolio-title">Portfolio</div>
@@ -134,8 +136,8 @@
                 <img src="assets/img11.jpg" alt="image">
                 <img src="assets/img12.jpg" alt="image">
             </div>
+            <div class="portfolio-line"></div>
         </div>
-        <div class="portfolio-line"></div>
         <div class="about-us" id = "about">
             <div class = "portfolio-title">About Us</div>
             <p class = "portfolio-description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
@@ -209,8 +211,8 @@
                         </div>
                 </div>
             </div>
+            <div class="quote-line"></div>
         </div>    
-        <div class="quote-line"></div>
         <footer>
             <div class="copyright">© Copyright 2013</div>
             <div class="social-icons">
