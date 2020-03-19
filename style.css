@@ -148,13 +148,12 @@ header .active {
 }
 
 .slider {
-  height: 600px;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
+  height: 600px;
   padding: 53px 40px;
-  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -431,6 +430,23 @@ article .article-about div {
 .team-people {
   width: 300px;
   margin-right: 20px;
+}
+
+.team-people-image {
+  overflow: hidden;
+  width: 300px;
+}
+
+.team-people-image img {
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+.team-people-image img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .team-people h3 {

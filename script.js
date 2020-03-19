@@ -162,6 +162,7 @@ document.getElementById('submit').addEventListener('click', (event) => {
         document.getElementById('modal').classList.remove('hidden');
         document.getElementById('modal').getElementsByClassName('submit')[0].addEventListener('click', (event => {
             document.getElementById('modal').classList.add('hide');
+            document.getElementById('form').reset();
             setTimeout(()=>{
                 document.getElementById('modal').classList.add('hidden');
                 document.getElementById('modal').classList.remove('hide');
