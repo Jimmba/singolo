@@ -53,6 +53,8 @@ body {
 }
 
 header {
+  position: fixed;
+  width: 1020px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -66,6 +68,7 @@ header {
   color: #ffffff;
   text-transform: uppercase;
   font-family: Lato-Bold;
+  z-index: 2;
 }
 
 header a {
@@ -98,6 +101,7 @@ header li {
   padding-left: 0px;
   padding-top: 11px;
   position: relative;
+  color: #ffffff;
 }
 
 header li:not(:first-child)::after {
@@ -108,17 +112,12 @@ header li:not(:first-child)::after {
   opacity: 0.3;
 }
 
-header li a:hover {
+header li:hover {
   cursor: pointer;
   opacity: 0.8;
 }
 
-header li a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-header li .active {
+header .active {
   color: #f06c64;
 }
 
@@ -129,6 +128,7 @@ header li .active {
 
 .line-header {
   background-color: #323746;
+  padding-top: 95px;
 }
 
 .red-line {
@@ -210,7 +210,7 @@ header li .active {
 }
 
 .slider-controls .left, .slider-controls .right {
-  z-index: 2;
+  z-index: 1;
 }
 
 .slider-controls .left:hover, .slider-controls .right:hover {
@@ -330,7 +330,7 @@ article .article-about div {
   display: -ms-flexbox;
   display: flex;
   padding: 0;
-  margin: 0;
+  margin: 0 0 0 1px;
 }
 
 .portfolio li {
@@ -355,7 +355,6 @@ article .article-about div {
 
 .portfolio .active {
   color: #dedede;
-  margin-left: 1px;
   border: 1px solid #dedede;
 }
 
@@ -674,10 +673,10 @@ footer .social-icons img:hover {
   color: #fff;
   margin: 0;
   text-align: justify;
-  line-height: 18px;
+  line-height: 22px;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 58vh;
+  max-height: 57vh;
 }
 
 .modal-window-title {

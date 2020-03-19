@@ -9,14 +9,51 @@ const IMAGES = document.getElementById('images');
 // menu buttons
 MENU.addEventListener('click', (event) =>
 {
-    let menues = MENU.querySelectorAll('a');
+    let menues = MENU.querySelectorAll('li');
     if (clickedOnButton(menues, event.target)){
-        MENU.querySelectorAll('a').forEach(el => {
+        MENU.querySelectorAll('li').forEach(el => {
             el.classList.remove('active');
         });
         event.target.classList.add('active');
+        let offset = document.getElementById(event.target.innerText.toLocaleLowerCase()).offsetTop;
+        ScrollingTo(offset);
     }
 })
+
+function ScrollingTo(pixel) {
+    let header = 90;
+    let start = window.scrollY;
+    let scrollDistance = pixel - start - header;
+    let scrolled = 0;
+    let size = 0;
+    let step = 1;
+    let up = false;
+    if (scrollDistance < 0) {
+        scrollDistance = 0 - scrollDistance;
+        up = true;
+    }
+    let timer = setInterval(() => {
+        (!up && size >= 50) || (up && size <= 51) ? 2 : 1;
+        size = scrolled < scrollDistance / 2 ? size + step : (size - step > 0 ? size - step : step);
+        if (scrolled + size > scrollDistance / 2 && scrolled < scrollDistance / 2) {
+            scrolled = scrollDistance - scrolled;
+        } else {
+            scrolled = scrolled + size;
+        }
+
+        if (scrolled >= scrollDistance) {
+            console.log("end", scrollDistance);
+            window.scrollTo(0, pixel - header); //!
+            clearInterval(timer);
+            return;
+        }
+        if (up) {
+            window.scrollTo(0, start - scrolled);
+        } else {
+            window.scrollTo(0, start + scrolled);
+        }
+    }, 20);
+}
 
 // slider
 document.getElementById('slide-left').addEventListener('click', ()=> {
