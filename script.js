@@ -54,7 +54,7 @@ function ScrollingTo(pixel) {
         }
 
         if (scrolled >= scrollDistance) {
-            window.scrollTo(0, pixel - header); //!
+            window.scrollTo(0, pixel - header + 1); //!
             clearInterval(timer);
             return;
         }
