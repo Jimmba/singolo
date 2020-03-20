@@ -22,7 +22,7 @@ function getDivs () {
 // menu buttons
 MENU.addEventListener('click', (event) =>
 {
-    if (clickedOnButton(MENUELEMENTS, event.target)){
+    if (clickedOnElement(MENUELEMENTS, event.target)){
         MENUELEMENTS.forEach(el => {
             el.classList.remove('active');
         });
@@ -109,7 +109,7 @@ function ChangePhoneState(mobile) {
 
 PORTFOLIOTABS.addEventListener('click', (event) => {
     let tabs = PORTFOLIOTABS.querySelectorAll('li');
-    if (clickedOnButton(tabs, event.target)) {
+    if (clickedOnElement(tabs, event.target)) {
         tabs.forEach(el => {
             el.classList.remove('active');
         });
@@ -118,29 +118,63 @@ PORTFOLIOTABS.addEventListener('click', (event) => {
     }
 })
 
-function clickedOnButton(buttons, target){
-    for (let i = 0; i < buttons.length; i +=1) {
-        if (buttons[i] == target) return true;
+function clickedOnElement(arrayOfElements, clickedElement){
+    for (let i = 0; i < arrayOfElements.length; i +=1) {
+        if (arrayOfElements[i] == clickedElement) return true;
     }
     return false;
 }
 
+let a = clickedOnElement
 //portfolio images border
 
 IMAGES.addEventListener('click', (event) => {
+    //debugger;
     let activeImage = IMAGES.getElementsByClassName('bordered')[0];
     let clickedImage = event.target;
     let imgs = IMAGES.querySelectorAll('img');
     
-    if (clickedOnButton(imgs, event.target)) {
+    if (clickedOnElement(imgs, event.target)) {
+        //debugger;
         imgs.forEach(el => {
-            el.classList.remove('bordered');
+            if (el.classList.contains('bordered') || el.classList.contains('showingBorder')) {
+                removeBorder(el);
+            }
+            
         });
         if (activeImage !== clickedImage) {
-            event.target.classList.add('bordered');
+            event.target.classList.remove('noborder');
+            event.target.classList.add('showingBorder');
+            setTimeout(() => {
+                event.target.classList.remove('showingBorder');
+                if (!event.target.classList.contains('hiddingBorder')) {
+                    event.target.classList.add('bordered');
+                }
+            }, 1000);
         }
     }
 })
+
+IMAGES.addEventListener('mouseover', (event) => {
+    let images = IMAGES.querySelectorAll('img');
+    if (clickedOnElement(images, event.target)) {
+        event.target.classList.add('shake');
+        setTimeout(() => {
+            event.target.classList.remove('shake');
+        }, 1000);
+    }
+})
+
+function removeBorder(el) {
+    el.classList.add('hiddingBorder');
+    setTimeout(() => {
+        el.classList.remove('hiddingBorder');
+        if (!el.classList.contains('showingBorder')) {
+            el.classList.add('noborder');
+        }
+    }, 1000);
+    el.classList.remove('bordered');
+}
 
 function MoveImages() {
     let move = IMAGES.querySelectorAll('img')[0];

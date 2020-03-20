@@ -384,24 +384,39 @@ article .article-about div {
   padding-top: 19px;
   margin-left: -5px;
   margin-top: -5px;
-  margin-right: -5px;
+  margin-right: -15px;
 }
 
 .portfolio .images img {
   margin: 0 10px 10px 0;
-  border: 5px solid transparent;
-}
-
-.portfolio .images img:nth-child(4n) {
-  margin: 0 0 10px 0;
+  border: 5px solid;
 }
 
 .portfolio .images img:nth-child(n + 13) {
   display: none;
 }
 
+.portfolio .images .shake {
+  -webkit-animation: shake 0.5s ease-out;
+          animation: shake 0.5s ease-out;
+}
+
+.portfolio .images .noborder {
+  border-color: transparent;
+}
+
+.portfolio .images .showingBorder {
+  -webkit-animation: portfolioPictureBorder 1s ease-out forwards;
+          animation: portfolioPictureBorder 1s ease-out forwards;
+}
+
+.portfolio .images .hiddingBorder {
+  -webkit-animation: hiddingBorder 1s ease-out forwards;
+          animation: hiddingBorder 1s ease-out forwards;
+}
+
 .portfolio .images .bordered {
-  border: 5px solid #F06C64;
+  border-color: #F06C64;
 }
 
 .portfolio-line {
@@ -860,6 +875,92 @@ footer .social-icons img:hover {
   to {
     color: #fff;
     background-color: #D6564F;
+  }
+}
+
+@-webkit-keyframes portfolioPictureBorder {
+  20% {
+    border-color: #F06C64;
+  }
+  40% {
+    border-color: transparent;
+  }
+  60% {
+    border-color: #F06C64;
+  }
+  80% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: #F06C64;
+  }
+}
+
+@keyframes portfolioPictureBorder {
+  20% {
+    border-color: #F06C64;
+  }
+  40% {
+    border-color: transparent;
+  }
+  60% {
+    border-color: #F06C64;
+  }
+  80% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: #F06C64;
+  }
+}
+
+@-webkit-keyframes hiddingBorder {
+  from {
+    display: none;
+    border-color: #f06c64;
+  }
+  to {
+    border-color: rgba(240, 108, 100, 0);
+  }
+}
+
+@keyframes hiddingBorder {
+  from {
+    display: none;
+    border-color: #f06c64;
+  }
+  to {
+    border-color: rgba(240, 108, 100, 0);
+  }
+}
+
+@-webkit-keyframes shake {
+  20% {
+    margin: 0 11px 10px -1px;
+  }
+  40% {
+    margin: 0 9px 10px 1px;
+  }
+  60% {
+    margin: 0 11px 10px -1px;
+  }
+  80% {
+    margin: 0 10px 10px 0;
+  }
+}
+
+@keyframes shake {
+  20% {
+    margin: 0 11px 10px -1px;
+  }
+  40% {
+    margin: 0 9px 10px 1px;
+  }
+  60% {
+    margin: 0 11px 10px -1px;
+  }
+  80% {
+    margin: 0 10px 10px 0;
   }
 }
 /*# sourceMappingURL=style.css.map */
