@@ -54,7 +54,7 @@ function ScrollingTo(pixel) {
         }
 
         if (scrolled >= scrollDistance) {
-            window.scrollTo(0, pixel - header + 1); //!
+            window.scrollTo(0, pixel - header + 1); 
             clearInterval(timer);
             return;
         }
@@ -64,33 +64,6 @@ function ScrollingTo(pixel) {
             window.scrollTo(0, start + scrolled);
         }
     }, 20);
-}
-
-// slider
-document.getElementById('slide-left').addEventListener('click', ()=> {
-    showSlide(false);
-});
-
-document.getElementById('slide-right').addEventListener('click', ()=> {
-    showSlide(true);
-});
-
-function showSlide(toShowTheNextSlide) {
-    let oldColor = getColor(activeSlide);
-    
-    activeSlide = toShowTheNextSlide ? (activeSlide + 1 > SLIDES.length ? 1 : activeSlide + 1) : (activeSlide - 1 < 1 ? SLIDES.length : activeSlide - 1);
-    for (let i = 0; i < SLIDES.length; i += 1) {
-        SLIDES[i].classList.add('hidden');
-    }
-    SLIDES[activeSlide - 1].classList.remove('hidden');
-    LINE.classList.remove(`${oldColor}-line`);
-    let newColor = getColor(activeSlide);
-    LINE.classList.add(`${newColor}-line`)
-
-}
-
-function getColor(slide) {
-    return SLIDES[activeSlide - 1].getAttribute("class").split(" ")[1];
 }
 
 // on-off phones
@@ -129,13 +102,11 @@ let a = clickedOnElement
 //portfolio images border
 
 IMAGES.addEventListener('click', (event) => {
-    //debugger;
     let activeImage = IMAGES.getElementsByClassName('bordered')[0];
     let clickedImage = event.target;
     let imgs = IMAGES.querySelectorAll('img');
     
     if (clickedOnElement(imgs, event.target)) {
-        //debugger;
         imgs.forEach(el => {
             if (el.classList.contains('bordered') || el.classList.contains('showingBorder')) {
                 removeBorder(el);
@@ -222,3 +193,251 @@ function onScroll() {
         }
     });
 }
+
+//slider
+
+const multiItemSlider = (function () {
+    function _isElementVisible(element) {
+      const rect = element.getBoundingClientRect(),
+        vWidth = window.innerWidth || doc.documentElement.clientWidth,
+        vHeight = window.innerHeight || doc.documentElement.clientHeight,
+        elemFromPoint = function (x, y) { 
+        return document.elementFromPoint(x, y) };
+
+      if (rect.right < 0 || rect.bottom < 0
+        || rect.left > vWidth || rect.top > vHeight)
+        return false;
+      return (
+        element.contains(elemFromPoint(rect.left, rect.top - 90))
+        || element.contains(elemFromPoint(rect.right, rect.top - 90))
+        || element.contains(elemFromPoint(rect.right, rect.bottom - 90))
+        || element.contains(elemFromPoint(rect.left, rect.bottom - 90))
+      );
+    }
+
+    return function (selector, config) {
+      let
+        _mainElement = document.querySelector(selector), // основный элемент блока
+        _sliderWrapper = _mainElement.querySelector('.slider-wrapper'), // обертка для .slider-item
+        _sliderItems = _mainElement.querySelectorAll('.slider-item'), // элементы (.slider-item)
+        _sliderControls = _mainElement.querySelectorAll('.arrow'), // элементы управления
+        _sliderControlLeft = _mainElement.querySelector('.arrow-left'), // кнопка "LEFT"
+        _sliderControlRight = _mainElement.querySelector('.arrow-right'), // кнопка "RIGHT"
+        _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width), // ширина обёртки
+        _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width), // ширина одного элемента    
+        _positionLeftItem = 0, // позиция левого активного элемента
+        _transform = 0, // значение транфсофрмации .slider_wrapper
+        _step = _itemWidth / _wrapperWidth * 100, // величина шага (для трансформации)
+        _items = [], // массив элементов
+        _interval = 0,
+        _html = _mainElement.innerHTML,
+        _states = [
+          { active: false, minWidth: 0, count: 1 },
+          { active: false, minWidth: 1020, count: 2 }
+        ],
+        _config = {
+          isCycling: false, // автоматическая смена слайдов
+          direction: 'right', // направление смены слайдов
+          interval: 1000, // интервал между автоматической сменой слайдов
+          pause: true, // устанавливать ли паузу при поднесении курсора к слайдеру
+          autoChangeImage: false // менять ли картинку автоматически
+        };
+
+      for (const key in config) {
+        if (key in _config) {
+          _config[key] = config[key];
+        }
+      }
+
+      // наполнение массива _items
+      _sliderItems.forEach(function (item, index) {
+        _items.push({ item: item, position: index, transform: 0 });
+      });
+
+      const _setActive = function () {
+        let _index = 0;
+        const width = parseFloat(document.body.clientWidth);
+        _states.forEach(function (item, index, arr) {
+          _states[index].active = false;
+          if (width >= _states[index].minWidth)
+            _index = index;
+        });
+        _states[_index].active = true;
+      }
+
+      const _getActive = function () {
+        let _index;
+        _states.forEach(function (item, index, arr) {
+          if (_states[index].active) {
+            _index = index;
+          }
+        });
+        return _index;
+      }
+
+      const position = {
+        getItemMin: function () {
+          let indexItem = 0;
+          _items.forEach(function (item, index) {
+            if (item.position < _items[indexItem].position) {
+              indexItem = index;
+            }
+          });
+          return indexItem;
+        },
+        getItemMax: function () {
+          let indexItem = 0;
+          _items.forEach(function (item, index) {
+            if (item.position > _items[indexItem].position) {
+              indexItem = index;
+            }
+          });
+          return indexItem;
+        },
+        getMin: function () {
+          return _items[position.getItemMin()].position;
+        },
+        getMax: function () {
+          return _items[position.getItemMax()].position;
+        }
+      }
+
+      const _transformItem = function (direction) {
+        let nextItem;
+        if (!_isElementVisible(_mainElement)) {
+          return;
+        }
+        if (direction === 'right') {
+          _positionLeftItem++;
+          if ((_positionLeftItem + _wrapperWidth / _itemWidth - 1) > position.getMax()) {
+            nextItem = position.getItemMin();
+            _items[nextItem].position = position.getMax() + 1;
+            _items[nextItem].transform += _items.length * 100;
+            _items[nextItem].item.style.transform = 'translateX(' + _items[nextItem].transform + '%)';
+          }
+          _transform -= _step;
+        }
+        if (direction === 'left') {
+          _positionLeftItem--;
+          if (_positionLeftItem < position.getMin()) {
+            nextItem = position.getItemMax();
+            _items[nextItem].position = position.getMin() - 1;
+            _items[nextItem].transform -= _items.length * 100;
+            _items[nextItem].item.style.transform = 'translateX(' + _items[nextItem].transform + '%)';
+          }
+          _transform += _step;
+        }
+        _sliderWrapper.style.transform = 'translateX(' + _transform + '%)';
+      }
+
+      const _cycle = function (direction) {
+        if (!_config.isCycling) {
+          return;
+        }
+        if (_config.autoChangeImage) {
+          _interval = setInterval(function () {
+            _transformItem(direction);
+          }, _config.interval);
+        }
+      }
+
+      // обработчик события click для кнопок "назад" и "вперед"
+      const _controlClick = function (e) {
+        console.log('click');
+        if (e.target.classList.contains('arrow')) {
+          e.preventDefault();
+          const direction = e.target.classList.contains('arrow-right') ? 'right' : 'left';
+          _transformItem(direction);
+          clearInterval(_interval);
+          _cycle(_config.direction);
+        }
+      };
+
+      // обработка события изменения видимости страницы
+      const _handleVisibilityChange = function () {
+        if (document.visibilityState === "hidden") {
+          clearInterval(_interval);
+        } else {
+          clearInterval(_interval);
+          _cycle(_config.direction);
+        }
+      }
+
+      const _refresh = function () {
+        clearInterval(_interval);
+        _mainElement.innerHTML = _html;
+        _sliderWrapper = _mainElement.querySelector('.slider-wrapper');
+        _sliderItems = _mainElement.querySelectorAll('.slider-item');
+        _sliderControls = _mainElement.querySelectorAll('.arrow');
+        _sliderControlLeft = _mainElement.querySelector('.arrow-left');
+        _sliderControlRight = _mainElement.querySelector('.arrow-right');
+        _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width);
+        _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width);
+        _positionLeftItem = 0;
+        _transform = 0;
+        _step = _itemWidth / _wrapperWidth * 100;
+        _items = [];
+        _sliderItems.forEach(function (item, index) {
+          _items.push({ item: item, position: index, transform: 0 });
+        });
+      }
+
+      const _setUpListeners = function () {
+        _mainElement.addEventListener('click', _controlClick);
+        if (_config.pause && _config.isCycling) {
+          _mainElement.addEventListener('mouseenter', function () {
+            clearInterval(_interval);
+          });
+          _mainElement.addEventListener('mouseleave', function () {
+            clearInterval(_interval);
+            _cycle(_config.direction);
+          });
+        }
+        document.addEventListener('visibilitychange', _handleVisibilityChange, false);
+        window.addEventListener('resize', function () {
+          let
+            _index = 0,
+            width = parseFloat(document.body.clientWidth);
+          _states.forEach(function (item, index, arr) {
+            if (width >= _states[index].minWidth)
+              _index = index;
+          });
+          if (_index !== _getActive()) {
+            _setActive();
+            _refresh();
+          }
+        });
+      }
+
+      // инициализация
+      _setUpListeners();
+      if (document.visibilityState === "visible") {
+        _cycle(_config.direction);
+      }
+      _setActive();
+
+      return {
+        right: function () { // метод right
+          _transformItem('right');
+        },
+        left: function () { // метод left
+          _transformItem('left');
+        },
+        stop: function () { // метод stop
+          _config.isCycling = false;
+          clearInterval(_interval);
+        },
+        cycle: function () { // метод cycle 
+          _config.isCycling = true;
+          clearInterval(_interval);
+          _cycle();
+        }
+      }
+
+    }
+  }());
+
+  const slider = multiItemSlider('.slider', {
+    isCycling: true,
+    autoChangeImage: false
+  })

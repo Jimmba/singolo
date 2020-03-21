@@ -21,30 +21,35 @@
                 </ul>
             </header>
             <div class="line line-header"></div>
-            <div class = "sliders" id="sliders">
-                <div class="slider red">
-                    <div class="vertical_mobile mobile">
-                        <div class="phone">
-                            <img class="shadow" src="assets/phone vertical.png" alt="vertical phone">
-                            <div class="mobiles mobile1 hidden" id = "mobile"></div>
+            <div class = "slider" id="slider">
+                <div class="slider-wrapper" id="slides">
+                    <div class="slider-item red">
+                        <div class="image">
+                            <div class="vertical_mobile mobile">
+                                <div class="phone">
+                                    <img class="shadow" src="assets/phone vertical.png" alt="vertical phone">
+                                    <div class="mobiles mobile1 hidden" id = "mobile"></div>
+                                </div>
+                            </div>
+                            <div class="horisontal_mobile mobile">
+                                <div class="phone">
+                                    <img class="shadow" src="assets/phone horizontal.png" alt="horizontal phone"`>
+                                    <div class="mobiles mobile2 hidden" id = "mobile"></div>
+                                </div>
+                            </div>
                         </div>
+                        <div class="line line-slider red-line" id = "line"></div>
                     </div>
-                    <div class="horisontal_mobile mobile">
-                        <div class="phone">
-                            <img class="shadow" src="assets/phone horizontal.png" alt="horizontal phone"`>
-                            <div class="mobiles mobile2 hidden" id = "mobile"></div>
+                    <div class ="slider-item blue">
+                        <div class="image">
+                            <img src="assets/slide-2.jpg" alt="slide2">
                         </div>
+                        <div class="line line-slider blue-line" id = "line"></div>
                     </div>
                 </div>
-                <div class ="slider blue hidden">
-                    <img src="assets/slide-2.jpg" alt="slide2">
-                </div>
+                <img class="arrow arrow-left" id = "slide-left" src="assets/slider_button.png" alt="right button">
+                <img class="arrow arrow-right" id = "slide-right" src="assets/slider_button.png" alt="left button">
             </div>
-            <div class="slider-controls">
-                <div class="left" id = "slide-left"><img src="assets/slider_button.png" alt="right button"></div>
-                <div class="right" id = "slide-right"><img src="assets/slider_button.png" alt="left button"></div>
-            </div>
-            <div class="line line-slider red-line" id = "line"></div>
         </div>
         <div class="our_services" id = "services">
             <div class="our_services__wrapper">

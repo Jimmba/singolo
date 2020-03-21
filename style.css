@@ -136,42 +136,66 @@ header .active {
 }
 
 .red-line {
+  margin-top: 80px;
+  width: 1020px;
+  margin-left: -40px;
   background-color: #ea676b;
-  position: absolute;
-  bottom: 0;
 }
 
 .blue-line {
   background-color: #6992Ff;
-  position: absolute;
-  bottom: 0;
+  width: 1020px;
+  margin-left: -40px;
+  margin-top: 25px;
 }
 
 .slider {
   position: relative;
+  overflow: hidden;
+}
+
+.slider-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transition: -webkit-transform 0.6s ease;
+  transition: -webkit-transform 0.6s ease;
+  transition: transform 0.6s ease;
+  transition: transform 0.6s ease, -webkit-transform 0.6s ease;
+}
+
+.slider-item {
   height: 600px;
+  position: relative;
   padding: 53px 40px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.slider-item .image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.slider .shadow {
+.slider-item .shadow {
   border-radius: 25px;
   -webkit-box-shadow: 25px 25px 1px #ce5d56;
           box-shadow: 25px 25px 1px #ce5d56;
 }
 
-.slider .vertical_mobile {
+.slider-item .vertical_mobile {
   padding-left: 72px;
   position: relative;
   z-index: 1;
 }
 
-.slider .vertical_mobile .mobile1 {
+.slider-item .vertical_mobile .mobile1 {
   position: absolute;
   width: 188px;
   height: 333px;
@@ -181,13 +205,13 @@ header .active {
   z-index: 2;
 }
 
-.slider .horisontal_mobile {
+.slider-item .horisontal_mobile {
   padding: 121px 98px;
   position: relative;
   z-index: 1;
 }
 
-.slider .horisontal_mobile .mobile2 {
+.slider-item .horisontal_mobile .mobile2 {
   position: absolute;
   width: 333px;
   height: 188px;
@@ -197,7 +221,7 @@ header .active {
   z-index: 2;
 }
 
-.slider-controls {
+.arrows {
   max-width: 944px;
   margin: 0 40px;
   position: absolute;
@@ -211,16 +235,27 @@ header .active {
           justify-content: space-between;
 }
 
-.slider-controls .right img {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+.arrow {
+  position: absolute;
+  top: 54%;
 }
 
-.slider-controls .left, .slider-controls .right {
+.arrow-left {
+  margin-left: 40px;
+}
+
+.arrow-right {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  margin-right: 40px;
+  right: 0;
+}
+
+.arrow-left, .arrow-right {
   z-index: 1;
 }
 
-.slider-controls .left:hover, .slider-controls .right:hover {
+.arrow-left:hover, .arrow-right:hover {
   cursor: pointer;
 }
 
@@ -260,15 +295,6 @@ header .active {
   color: #767e9e;
   line-height: 30px;
   margin-bottom: 3px;
-}
-
-.our_services-line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 5px;
-  width: 100%;
-  background-color: #fff;
 }
 
 .articles_wrapper {
