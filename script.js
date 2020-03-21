@@ -8,6 +8,7 @@ const PORTFOLIOTABS = document.getElementById('portfolio-tabs');
 const IMAGES = document.getElementById('images');
 const DIVS = getDivs();
 const HEADERSIZE = 90;
+const AUTOCHANGEIMAGE = true;
 
 // array of elements with anchors
 function getDivs () {
@@ -21,13 +22,8 @@ function getDivs () {
 };
 
 // menu buttons
-MENU.addEventListener('click', (event) =>
-{
+MENU.addEventListener('click', (event) => {
     if (clickedOnElement(MENUELEMENTS, event.target)){
-        MENUELEMENTS.forEach(el => {
-            el.classList.remove('active');
-        });
-        event.target.classList.add('active');
         let offset = document.getElementById(event.target.innerText.toLocaleLowerCase()).offsetTop;
         ScrollingTo(offset);
     }
@@ -238,7 +234,7 @@ const multiItemSlider = (function () {
         _config = {
           isCycling: false, // автоматическая смена слайдов
           direction: 'right', // направление смены слайдов
-          interval: 1000, // интервал между автоматической сменой слайдов
+          interval: 5000, // интервал между автоматической сменой слайдов
           pause: true, // устанавливать ли паузу при поднесении курсора к слайдеру
           autoChangeImage: false // менять ли картинку автоматически
         };
@@ -439,5 +435,5 @@ const multiItemSlider = (function () {
 
   const slider = multiItemSlider('.slider', {
     isCycling: true,
-    autoChangeImage: false
+    autoChangeImage: AUTOCHANGEIMAGE
   })
