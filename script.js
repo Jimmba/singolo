@@ -7,6 +7,7 @@ const MOBILES = document.getElementsByClassName('phone');
 const PORTFOLIOTABS = document.getElementById('portfolio-tabs');
 const IMAGES = document.getElementById('images');
 const DIVS = getDivs();
+const HEADERSIZE = 90;
 
 // array of elements with anchors
 function getDivs () {
@@ -33,9 +34,8 @@ MENU.addEventListener('click', (event) =>
 })
 
 function ScrollingTo(pixel) {
-    let header = 90;
     let start = window.scrollY;
-    let scrollDistance = pixel - start - header;
+    let scrollDistance = pixel - start - HEADERSIZE;
     let scrolled = 0;
     let size = 0;
     let step = 1;
@@ -54,7 +54,7 @@ function ScrollingTo(pixel) {
         }
 
         if (scrolled >= scrollDistance) {
-            window.scrollTo(0, pixel - header + 1); 
+            window.scrollTo(0, pixel - HEADERSIZE + 1); 
             clearInterval(timer);
             return;
         }
@@ -208,10 +208,10 @@ const multiItemSlider = (function () {
         || rect.left > vWidth || rect.top > vHeight)
         return false;
       return (
-        element.contains(elemFromPoint(rect.left, rect.top - 90))
-        || element.contains(elemFromPoint(rect.right, rect.top - 90))
-        || element.contains(elemFromPoint(rect.right, rect.bottom - 90))
-        || element.contains(elemFromPoint(rect.left, rect.bottom - 90))
+        element.contains(elemFromPoint(rect.left, rect.top - HEADERSIZE))
+        || element.contains(elemFromPoint(rect.right, rect.top - HEADERSIZE))
+        || element.contains(elemFromPoint(rect.right, rect.bottom - HEADERSIZE))
+        || element.contains(elemFromPoint(rect.left, rect.bottom - HEADERSIZE))
       );
     }
 

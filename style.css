@@ -785,8 +785,8 @@ footer .social-icons img:hover {
 }
 
 .hide {
-  -webkit-animation: hideModal 2s ease;
-          animation: hideModal 2s ease;
+  -webkit-animation: hideModal 2s ease forwards;
+          animation: hideModal 2s ease forwards;
 }
 
 .hide .modal-window {
