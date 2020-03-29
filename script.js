@@ -165,8 +165,8 @@ document.getElementById('submit').addEventListener('click', (event) => {
     let email = document.getElementById('email');
     if (name.checkValidity() && email.checkValidity()) {
         event.preventDefault();
-        let subject = document.getElementById('subject').value.toString() !== '' ? `Тема: ${document.getElementById('subject').value.toString()}` : 'Без темы';
-        let describe = document.getElementById('describe').value.toString() !== '' ? `Описание: ${document.getElementById('describe').value.toString()}` : 'Без описания';
+        let subject = document.getElementById('subject').value.toString() !== '' ? `Тема: ${document.getElementById('subject').value.toString()}` : 'Нет темы';
+        let describe = document.getElementById('describe').value.toString() !== '' ? `Описание: ${document.getElementById('describe').value.toString()}` : 'Нет описания';
         
         document.getElementById('modal').getElementsByClassName('subject')[0].querySelector('p').innerHTML = subject;
         document.getElementById('modal').getElementsByClassName('describe')[0].querySelector('p').innerHTML = describe;

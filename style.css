@@ -135,6 +135,10 @@ header .active {
   padding-top: 94px;
 }
 
+.line-slider {
+  opacity: 0;
+}
+
 .home {
   position: relative;
 }
@@ -238,6 +242,16 @@ header .active {
   left: 60px;
   background-color: black;
   z-index: 2;
+}
+
+.slider .centered {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.slider .centered img {
+  width: 50%;
 }
 
 .arrow {
@@ -1252,6 +1266,15 @@ footer .social-icons img:hover {
   .arrow-right {
     margin-left: 15px;
   }
+  .portfolio .images img {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .portfolio .images img {
+    width: 170px;
+  }
 }
 
 @media screen and (max-width: 425px) {
@@ -1312,7 +1335,7 @@ footer .social-icons img:hover {
   header li {
     margin-left: 0;
     font-size: 24px;
-    padding-bottom: 17px;
+    padding-bottom: 22px;
     letter-spacing: -1px;
   }
   header li:not(:first-child)::after {
@@ -1399,6 +1422,7 @@ footer .social-icons img:hover {
   }
   .articles_wrapper article {
     margin-bottom: 36px;
+    margin-right: 56px;
   }
   .portfolio {
     padding: 49px 30px 31px;
@@ -1484,6 +1508,46 @@ footer .social-icons img:hover {
   }
   footer .social-icons {
     margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .slider-item {
+    padding-top: 110px;
+  }
+  .slider-item .shadow {
+    border-radius: 9px;
+    -webkit-box-shadow: 9px 9px 1px #ce5d56;
+            box-shadow: 9px 9px 1px #ce5d56;
+  }
+  .slider-item .vertical_mobile img {
+    width: 63px;
+    height: 134px;
+  }
+  .slider-item .vertical_mobile .mobile1 {
+    width: 56px;
+    height: 98px;
+    top: 19px;
+    left: 4px;
+  }
+  .slider-item .horisontal_mobile img {
+    width: 134px;
+    height: 63px;
+  }
+  .slider-item .horisontal_mobile .mobile2 {
+    width: 98px;
+    height: 56px;
+    top: 4px;
+    left: 17px;
+  }
+  article .article-about div {
+    width: 200px;
+  }
+  .portfolio li {
+    font-size: 9px;
+  }
+  .portfolio .images img {
+    width: 136px;
   }
 }
 /*# sourceMappingURL=style.css.map */
