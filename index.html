@@ -11,7 +11,12 @@
     <div class="wrapper">
         <div class="home" id ="home">
             <header>
-                <a href ="/"><h1 class = "logo">Singolo<span>*</span></h1></a>
+                <div class="burger" id="burger">
+                    <div class="burger-item"></div>
+                    <div class="burger-item"></div>
+                    <div class="burger-item"></div>
+                </div>
+                <a href ="/" id = "logo"><h1 class = "logo">Singolo<span>*</span></h1></a>
                 <ul class="nav" id = "menu">
                     <li class = "active">Home</li>
                     <li>Services</li>
@@ -128,18 +133,42 @@
                 </nav>
             </div>
             <div class="images" id="images">
-                <img class="noborder" src="assets/img1.jpg" alt="image">
-                <img class="noborder" src="assets/img2.jpg" alt="image">
-                <img class="noborder" src="assets/img3.jpg" alt="image">
-                <img class="noborder" src="assets/img4.jpg" alt="image">
-                <img class="noborder" src="assets/img5.jpg" alt="image">
-                <img class="noborder" src="assets/img6.jpg" alt="image">
-                <img class="noborder" src="assets/img7.jpg" alt="image">
-                <img class="noborder" src="assets/img8.jpg" alt="image">
-                <img class="noborder" src="assets/img9.jpg" alt="image">
-                <img class="noborder" src="assets/img10.jpg" alt="image">
-                <img class="noborder" src="assets/img11.jpg" alt="image">
-                <img class="noborder" src="assets/img12.jpg" alt="image">
+                <div>
+                    <img class="noborder" src="assets/img1.jpg" alt="image">
+                </div>
+                <div>
+                    <img class="noborder" src="assets/img2.jpg" alt="image">
+                </div>
+                <div>
+                    <img class="noborder" src="assets/img3.jpg" alt="image">
+                </div>
+                <div>
+                    <img class="noborder" src="assets/img4.jpg" alt="image">
+                </div>
+                <div>
+                    <img class="noborder" src="assets/img5.jpg" alt="image">
+                </div>
+                <div>
+                    <img class="noborder" src="assets/img6.jpg" alt="image">
+                </div>
+                <div>
+                    <img class="noborder" src="assets/img7.jpg" alt="image">
+                </div>
+                <div>
+                    <img class="noborder" src="assets/img8.jpg" alt="image">
+                </div>
+                <div>
+                    <img class="noborder" src="assets/img9.jpg" alt="image">
+                </div>
+                <div>
+                    <img class="noborder" src="assets/img10.jpg" alt="image">
+                </div>
+                <div>
+                    <img class="noborder" src="assets/img11.jpg" alt="image">
+                </div>
+                <div>
+                    <img class="noborder" src="assets/img12.jpg" alt="image">
+                </div>
             </div>
             <div class="portfolio-line"></div>
         </div>
@@ -197,7 +226,7 @@
                     <input type="email" class = "text" name="email" id="email" placeholder="Email (Required)" required>
                     <input type="text" class = "text" name="subject" id="subject" placeholder="Subject">
                     <textarea class = "text" maxlength="1000" placeholder="Describe your project in detail..." id = "describe"></textarea>
-                    <input type="submit" class = "text submit" value="Submit" id = "submit">
+                    <input type="submit" class = "text submit" value="SEND" id = "submit">
                 </form>
                 <div class="contact">
                     <h3>Contact Information</h3>
@@ -206,19 +235,25 @@
                             <div class="contact-info-image">
                                 <img src="assets/icon-location.png" alt="location">
                             </div>
-                            Elm St. 14/05 Lost City
+                            <div class="description">
+                                Elm St. 14/05 Lost City
+                            </div>
                         </div>
                         <div class="contact-info">
-                            <span class="contact-info-image">
+                            <div class="contact-info-image">
                                 <img src="assets/icon-phone.png" alt="phone">
-                            </span>
-                            <a href="tel:03528 331 86 35">03528 331 86 35</a>
+                            </div>
+                            <div class="description">
+                                <a href="tel:03528 331 86 35">03528 331 86 35</a>
+                            </div>
                         </div>
                         <div class="contact-info">
-                            <span class="contact-info-image">
+                            <div class="contact-info-image">
                                 <img src="assets/icon-mail.png" alt="mail">
-                            </span>
-                            <a href ="mailto:info@singolo.com">info@singolo.com</a>
+                            </div>
+                            <div class="description">
+                                <a href ="mailto:info@singolo.com">info@singolo.com</a>
+                            </div>
                         </div>
                 </div>
             </div>

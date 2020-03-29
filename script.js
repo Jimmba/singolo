@@ -7,8 +7,10 @@ const MOBILES = document.getElementsByClassName('phone');
 const PORTFOLIOTABS = document.getElementById('portfolio-tabs');
 const IMAGES = document.getElementById('images');
 const DIVS = getDivs();
-const HEADERSIZE = 90;
-const AUTOCHANGEIMAGE = true;
+const HEADER = document.getElementsByTagName('header')[0];
+let headerSize = HEADER.offsetHeight;
+const AUTOCHANGEIMAGE = false;
+let burgerIsHidden = true;
 
 // array of elements with anchors
 function getDivs () {
@@ -21,7 +23,7 @@ function getDivs () {
     return array;
 };
 
-// menu buttons
+// menu buttons listener
 MENU.addEventListener('click', (event) => {
     if (clickedOnElement(MENUELEMENTS, event.target)){
         let offset = document.getElementById(event.target.innerText.toLocaleLowerCase()).offsetTop;
@@ -31,7 +33,7 @@ MENU.addEventListener('click', (event) => {
 
 function ScrollingTo(pixel) {
     let start = window.scrollY;
-    let scrollDistance = pixel - start - HEADERSIZE;
+    let scrollDistance = pixel - start - headerSize;
     let scrolled = 0;
     let size = 0;
     let step = 1;
@@ -40,6 +42,7 @@ function ScrollingTo(pixel) {
         scrollDistance = 0 - scrollDistance;
         up = true;
     }
+
     let timer = setInterval(() => {
         (!up && size >= 50) || (up && size <= 51) ? 2 : 1;
         size = scrolled < scrollDistance / 2 ? size + step : (size - step > 0 ? size - step : step);
@@ -49,8 +52,10 @@ function ScrollingTo(pixel) {
             scrolled = scrolled + size;
         }
 
+        if (!burgerIsHidden) changeBurgerState();
+
         if (scrolled >= scrollDistance) {
-            window.scrollTo(0, pixel - HEADERSIZE + 1); 
+            window.scrollTo(0, pixel - headerSize + 1); 
             clearInterval(timer);
             return;
         }
@@ -62,10 +67,15 @@ function ScrollingTo(pixel) {
     }, 20);
 }
 
+window.addEventListener('resize', ()=> {
+  headerSize = document.getElementsByTagName('header')[0].offsetHeight;
+})
+
 // on-off phones
 
 for (let i = 0; i < MOBILES.length; i += 1) {
     MOBILES[i].addEventListener('click', (event) => {
+      console.log('click');
         ChangePhoneState(event.currentTarget.getElementsByClassName('mobiles')[0].classList);
     });
 }
@@ -204,10 +214,10 @@ const multiItemSlider = (function () {
         || rect.left > vWidth || rect.top > vHeight)
         return false;
       return (
-        element.contains(elemFromPoint(rect.left, rect.top - HEADERSIZE))
-        || element.contains(elemFromPoint(rect.right, rect.top - HEADERSIZE))
-        || element.contains(elemFromPoint(rect.right, rect.bottom - HEADERSIZE))
-        || element.contains(elemFromPoint(rect.left, rect.bottom - HEADERSIZE))
+        element.contains(elemFromPoint(rect.left, rect.top - headerSize))
+        || element.contains(elemFromPoint(rect.right, rect.top - headerSize))
+        || element.contains(elemFromPoint(rect.right, rect.bottom - headerSize))
+        || element.contains(elemFromPoint(rect.left, rect.bottom - headerSize))
       );
     }
 
@@ -339,7 +349,6 @@ const multiItemSlider = (function () {
 
       // обработчик события click для кнопок "назад" и "вперед"
       const _controlClick = function (e) {
-        console.log('click');
         if (e.target.classList.contains('arrow')) {
           e.preventDefault();
           const direction = e.target.classList.contains('arrow-right') ? 'right' : 'left';
@@ -390,19 +399,19 @@ const multiItemSlider = (function () {
           });
         }
         document.addEventListener('visibilitychange', _handleVisibilityChange, false);
-        window.addEventListener('resize', function () {
-          let
-            _index = 0,
-            width = parseFloat(document.body.clientWidth);
-          _states.forEach(function (item, index, arr) {
-            if (width >= _states[index].minWidth)
-              _index = index;
-          });
-          if (_index !== _getActive()) {
-            _setActive();
-            _refresh();
-          }
-        });
+        // window.addEventListener('resize', function () {
+        //   let
+        //     _index = 0,
+        //     width = parseFloat(document.body.clientWidth);
+        //   _states.forEach(function (item, index, arr) {
+        //     if (width >= _states[index].minWidth)
+        //       _index = index;
+        //   });
+        //   if (_index !== _getActive()) {
+        //     _setActive();
+        //     _refresh();
+        //   }
+        // });
       }
 
       // инициализация
@@ -436,4 +445,23 @@ const multiItemSlider = (function () {
   const slider = multiItemSlider('.slider', {
     isCycling: true,
     autoChangeImage: AUTOCHANGEIMAGE
-  })
+  });
+
+  //burger listener
+
+  document.getElementById('burger').addEventListener('click', changeBurgerState);
+    
+  function changeBurgerState(){
+    const hidden = 'mobile-menu-hidden';
+    const visible = 'mobile-menu-visible';
+    
+    if (burgerIsHidden){
+      HEADER.classList.remove(hidden);
+      HEADER.classList.add(visible);
+    } else {
+      HEADER.classList.remove(visible);
+      HEADER.classList.add(hidden);
+    }
+
+    burgerIsHidden = burgerIsHidden ? false : true;
+  };
