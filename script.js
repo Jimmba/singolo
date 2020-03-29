@@ -154,7 +154,7 @@ function removeBorder(el) {
 }
 
 function MoveImages() {
-    let move = IMAGES.querySelectorAll('img')[0];
+    let move = IMAGES.querySelectorAll('div')[0];
     IMAGES.appendChild(move);
 }
 
